@@ -1,249 +1,38 @@
-/* GENERAL */
+.slideshow {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.slideshow img {
+  width: 100%;
+  height: auto;
+  animation: slideFade 1.5s ease-in-out infinite;
+}
+
+@keyframes slideFade {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.form-animate {
+  transition: all 0.3s ease;
+}
+
+.form-animate:focus {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Add additional styling fixes below */
+
 body {
-    margin: 0;
-    font-family: "Trebuchet MS", sans-serif;
-    background: #f5f5f5;
-}
-
-h1, h2 {
-    margin-bottom: 20px;
-}
-
-section {
-    padding: 80px 20px;
-}
-
-/* NAVBAR */
-.Navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: black;
-    display: flex;
-    justify-content: flex-start;  /* LEFT aligned */
-    padding-left: 20px;
-    z-index: 1000;
-}
-
-.Navbar a {
-    color: white;
-    text-decoration: none;
-    padding: 15px 20px;
-}
-
-.Navbar a:hover {
-    background: white;
-    color: black;
-}
-
-/* HERO SECTION */
-.hero {
-    position: relative;
-    width: 100%;
-    height: 70vh;      /* Full width, controlled height */
-    margin-top: 60px;  /* Space below navbar */
-    overflow: hidden;
-}
-
-/* VIDEO */
-.hero-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* OVERLAY TEXT */
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    background: rgba(0, 0, 0, 0.55);
-    color: ghostwhite;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-    padding: 20px;
-}
-/* SLIDESHOW STYLES */
-#Slideshow {
-    background: #f9f9f9;
-    padding: 40px 20px;
-}
-
-#Slideshow_Background {
-    max-width: 800px;
-    margin: auto;
-}
-
-#Slideshow-Container {
-    position: relative;
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.mySlides {
-    display: none;
-    position: relative;
-}
-
-.mySlides.active {
-    display: block;
-}
-
-.mySlides.fade {
-    animation: fade 1s;
-}
-
-.Slideshow_Images {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 15px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.Previous, .Next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 16px;
-    color: white;
-    background: rgba(0, 0, 0, 0.5);
-    border: none;
-    font-size: 18px;
-    border-radius: 4px;
-    user-select: none;
-    z-index: 10;
-    transition: background 0.3s ease;
-}
-
-/* FLEX LAYOUT */
-.Row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    flex-wrap: wrap;
-    max-width: 1100px;
-    margin: auto;
-}
-
-.col {
-    flex: 1 1 400px;
-    max-width: 550px;
-}
-
-/* IMAGES */
-img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-}
-
-/* LIGHTBOX TRIGGER IMAGE */
-.lightbox-trigger {
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.lightbox-trigger:hover {
-    transform: scale(1.05);
-}
-
-/* BUTTON */
-.btn {
-    display: inline-block;
-    padding: 12px 20px;
-    background: black;
-    color: white;
-    text-decoration: none;
-    margin-top: 15px;
-    border-radius: 6px;
-}
-
-.btn:hover {
-    background: white;
-    color: black;
-    border: 1px solid black;
-}
-
-/* FORM */
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-input, textarea {
-    padding: 12px;
-    margin-bottom: 15px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-family: inherit;
-}
-
-input[type=submit] {
-    background: black;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-input[type=submit]:hover {
-    background: white;
-    color: black;
-    border: 1px solid black;
-}
-
-/* LIGHTBOX STYLES */
-.lightbox {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    animation: fadeIn 0.3s ease;
-}
-
-.lightbox.show {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.lightbox-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
-    max-width: 600px;
-    width: 90%;
-    max-height: 80vh;
-    overflow-y: auto;
-    position: relative;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    animation: slideUp 0.3s ease;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
 }
 
 #lightbox-img {
@@ -256,130 +45,5 @@ input[type=submit]:hover {
 #lightbox-text {
     font-size: 16px;
     line-height: 1.6;
-    color: #334;
-}
-
-.lightbox-close {
-    position: absolute;
-    top: 15px;
-    right: 20px;
     color: #333;
-    font-size: 32px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.lightbox-close:hover {
-    color: black;
-}
-
-/* ANIMATIONS */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 25px;
-    background: #222;
-    color: white;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .hero {
-        height: 50vh;
-    }
-
-    .Row {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .lightbox-content {
-        width: 95%;
-        padding: 20px;
-    }
-
-    .lightbox-close {
-        font-size: 28px;
-    }
-}
-
-/* POPUP FORM STYLES */
-.form-popup {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    right: 15px;
-    border: 3px solid #f1f1f1;
-    z-index: 9;
-    background: white;
-    border-radius: 12px 12px 0 0;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.form-popup.show {
-    display: block;
-    animation: slideInUp 0.4s ease-out;
-}
-
-@keyframes slideInUp {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.form-container {
-    max-width: 300px;
-    padding: 20px;
-    background: white;
-}
-
-.form-container h1 {
-    margin-top: 0;
-}
-
-.form-container label {
-    margin-top: 10px;
-    display: block;
-}
-
-.Pop_Up_Button {
-    background: #4CAF50;
-    color: white;
-    padding: 16px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 6px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    transition: background 0.3s ease;
-}
-
-.Pop_Up_Button:hover {
-    background: #45a049;
 }
